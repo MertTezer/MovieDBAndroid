@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/navMovie">
+
+    <fragment
+        android:id="@+id/navMovie"
+        android:name="com.merttezer.movie.ui.main.MovieMainFragment"
+        android:label="Movie"
+        tools:layout="@layout/movie_fragment">
+        <action
+            android:id="@+id/action_navMovie_to_navDetails"
+            app:destination="@id/navDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/navFavorite"
+        android:name="com.merttezer.movie.ui.favorite.MovieFavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/favorite_fragment">
+        <action
+            android:id="@+id/action_navFavorite_to_navDetails"
+            app:destination="@id/navDetails" />
+        <argument
+            android:name="movie"
+            app:argType="com.merttezer.movie.data.MovieFavoriteModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/navDetails"
+        android:name="com.merttezer.movie.ui.details.MovieDetailFragment"
+        android:label="Movie Details"
+        tools:layout="@layout/movie_detail_fragment" >
+        <argument
+            android:name="movie"
+            app:argType="com.merttezer.movie.data.MovieModel" />
+    </fragment>
+</navigation>
